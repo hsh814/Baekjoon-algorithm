@@ -1,5 +1,5 @@
 # Baekjoon-algorithm
-Source code of solved algorithms.
+Source code of solved problems.
 
 <a herf = "Baekjoon-algorithm/for-if/1924-2007y.cs">1924-2007.cs</a>
 
