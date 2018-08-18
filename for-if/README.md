@@ -1,7 +1,8 @@
 # Baekjoon-algorithm
 Source code of solved algorithms.
 
-1924-2007.cs:  Baekjoon-algorithm/for-if/1924-2007y.cs 
+<a herf = "Baekjoon-algorithm/for-if/1924-2007y.cs">1924-2007.cs</a>
+
 문제
 
 오늘은 2007년 1월 1일 월요일이다. 그렇다면 2007년 x월 y일은 무슨 요일일까? 이를 알아내는 프로그램을 작성하시오.
@@ -13,7 +14,8 @@ Source code of solved algorithms.
 첫째 줄에 x월 y일이 무슨 요일인지에 따라 SUN, MON, TUE, WED, THU, FRI, SAT중 하나를 출력한다.
 
 
-1100-PlusCycle.cs:  Baekjoon-algorithm/for-if/1110-PlusCycle.cs 
+<a herf = "Baekjoon-algorithm/for-if/1110-PlusCycle.cs">1100-PlusCycle.cs</a>   
+
 문제
 
 0보다 크거나 같고, 99보다 작거나 같은 정수가 주어질 때 다음과 같은 연산을 할 수 있다. 먼저 주어진 수가 10보다 작다면 앞에 0을 붙여 두 자리 수로 만들고, 각 자리의 숫자를 더한다. 그 다음, 주어진 수의 가장 오른쪽 자리 숫자와 앞에서 구한 합의 가장 오른쪽 자리 숫자를 이어 붙이면 새로운 수를 만들 수 있다. 다음 예를 보자.
