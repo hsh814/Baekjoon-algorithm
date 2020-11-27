@@ -40,7 +40,6 @@ def cmp_to_key(mycmp):
 def natural_compare(str1: str, str2: str) -> int:
 
 
-
 def natural_sort(files: List[str]) -> List[str]:
   return sort(files, key=com_to_key(natural_compare))
 
