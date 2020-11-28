@@ -1,7 +1,7 @@
 zero: int = ord('0')
 nine: int = ord('9')
 
-
+# https://docs.python.org/ko/3/howto/sorting.html?highlight=sorting#key-functions
 def cmp_to_key(mycmp):
   class K:
     def __init__(self, obj, *args):
