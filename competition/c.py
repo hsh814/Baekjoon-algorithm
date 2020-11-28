@@ -1,5 +1,3 @@
-zero: int = ord('0')
-nine: int = ord('9')
 
 # https://docs.python.org/ko/3/howto/sorting.html?highlight=sorting#key-functions
 def cmp_to_key(mycmp):
@@ -90,22 +88,22 @@ def natural_compare(str1: str, str2: str) -> int:
 def natural_sort(files: list) -> list:
   return sorted(files, key=cmp_to_key(natural_compare))
 
+def lab_result(lab: list, n: int, k: int) -> list:
+  print(lab, n, k)
+  return []
+
 def main():
-  n: int = int(input())
-  files: list = []
-  for i in range(n):
-    files.append(input())
-  files = natural_sort(files)
-  #print(files)
-  for file in files:
-    print(file)
+  temp = input()
+  n = int(temp.split()[0])
+  k = int(temp.split()[1])
+  lab = list()
+  for i in input().split():
+    lab.append(int(i))
+  result = lab_result(lab, n, k)
+  if not result:
+    print(-1)
+  else:
+    print(" ".join(result))
 
-"""
-example = ["Foo1Bar", "Foo12Bar", "Foo3bar", "Fo6Bar", "Foo00012Bar", "Foo3Bar", "foo4bar", "FOOBAR"]
-
-for e in example:
-  print(e)
-  print(parser(e))
-"""
 
 main()
