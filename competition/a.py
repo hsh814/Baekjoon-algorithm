@@ -1,18 +1,8 @@
-from typing import List, Set, Dict, Tuple
-
-alphabet = "abcdefghijklmnopqrstuvwxyz"
-Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-a: int = chr('a')
-z: int = chr('z')
-A: int = chr('A')
-Z: int = chr('Z')
-
-zero: int = chr('0')
-nine: int = chr('9')
+zero: int = ord('0')
+nine: int = ord('9')
 
 
 def cmp_to_key(mycmp):
-  'Convert a cmp= function into a key= function'
   class K:
     def __init__(self, obj, *args):
       self.obj = obj
@@ -36,20 +26,86 @@ def cmp_to_key(mycmp):
       return mycmp(self.obj, other.obj) != 0
   return K
 
+def is_digit(c: str) -> bool:
+  return zero <= ord(c) <= nine
+
+
+def parser(s: str) -> list:
+  result: list = []
+  temp: list = []
+  digit: bool = is_digit(s[0])
+  for c in s:
+    if digit != is_digit(c):
+      #print("temp: ", temp)
+      result.append("".join(temp))
+      temp.clear()
+    digit = is_digit(c)
+    temp.append(c)
+  result.append("".join(temp))
+  return result
+
+def compare_str(str1: str, str2: str) -> int:
+  if str1 == str2:
+    return 0
+  d1 = is_digit(str1[0])
+  d2 = is_digit(str2[0])
+  if d1 and d2:
+    i1 = int(str1)
+    i2 = int(str2)
+    if i1 == i2:
+      if len(str1) < len(str2):
+        return -1
+      else:
+        return 1
+    elif i1 < i2:
+      return -1
+    else:
+      return 1
+  if not d1 and not d2:
+    if str1 < str2:
+      return -1
+    else:
+      return 1
+  if d1:
+    return -1
+  else:
+    return 1
 
 def natural_compare(str1: str, str2: str) -> int:
+  s1 = parser(str1)
+  s2 = parser(str2)
+  l1 = len(s1)
+  l2 = len(s2)
+  for i in range(min(l1, l2)):
+    if compare_str(s1[i], s2[i]) != 0:
+      return compare_str(s1[i], s2[i])
+  if l1 < l2:
+    return -1
+  elif l1 == l2:
+    return 0
+  else:
+    return 1
 
 
-def natural_sort(files: List[str]) -> List[str]:
-  return sort(files, key=com_to_key(natural_compare))
+def natural_sort(files: list) -> list:
+  return sorted(files, key=cmp_to_key(natural_compare))
 
 def main():
   n: int = int(input())
-  files: List[str] = []
+  files: list = []
   for i in range(n):
     files.append(input())
   files = natural_sort(files)
+  #print(files)
   for file in files:
     print(file)
+
+"""
+example = ["Foo1Bar", "Foo12Bar", "Foo3bar", "Fo6Bar", "Foo00012Bar", "Foo3Bar", "foo4bar", "FOOBAR"]
+
+for e in example:
+  print(e)
+  print(parser(e))
+"""
 
 main()
